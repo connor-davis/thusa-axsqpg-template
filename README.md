@@ -12,7 +12,7 @@
 
 This is the Thusa API template that uses axum, sqlx and postgres to lay out a basic api server.
 
-#### Template Author: Connor Davis <connor.davis@thusa.co.za>
+#### Template Author: Connor Davis <<connor.davis@thusa.co.za>>
 
 ### Template Instructions
 
