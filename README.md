@@ -39,3 +39,31 @@ cargo build
 ```bash
 cargo run
 ```
+
+### Migrations instructions
+
+Well if you are looking here, you don't trust the server automatically running migrations. Here is the instruction list on how to run migrations.
+
+1. Ensure that the database url is in the .env file
+
+```env
+DATABASE_URL="postgres://postgres:password@localhost:5432/database"
+```
+
+2. Run the database creation command. (This template assumes that you have sqlx install globally)
+
+```bash
+sql db create
+```
+
+3. Run the migration run command.
+
+```bash
+sqlx migrate run
+```
+
+4. Revert migrations if needed.
+
+```bash
+sqlx migrate revert
+```
