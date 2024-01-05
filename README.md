@@ -10,7 +10,7 @@
 
 #### Template Description
 
-This is the Thusa API template that uses axum, sqlx and postgres to lay out a basic api server.
+This is the Thusa API template that uses axum, sqlx and postgres to lay out a basic api server. No need to worry about migrations being run, as long as the database is created and you have migrations in the "migrations" directory, the server will run migrations.
 
 #### Template Author: Connor Davis <<connor.davis@thusa.co.za>>
 
