@@ -2,9 +2,7 @@ use axum::{http::StatusCode, response::IntoResponse, Json};
 use serde_json::Value;
 
 pub async fn get_index() -> Result<(StatusCode, impl IntoResponse), (StatusCode, Json<Value>)> {
-    Ok((
-        StatusCode::OK,
-        r#"'########:'##::::'##:'##::::'##::'######:::::'###:::::::'########:'########::'######::'##::::'##:
+    let response_header = r#"'########:'##::::'##:'##::::'##::'######:::::'###:::::::'########:'########::'######::'##::::'##:
 ... ##..:: ##:::: ##: ##:::: ##:'##... ##:::'## ##::::::... ##..:: ##.....::'##... ##: ##:::: ##:
 ::: ##:::: ##:::: ##: ##:::: ##: ##:::..:::'##:. ##:::::::: ##:::: ##::::::: ##:::..:: ##:::: ##:
 ::: ##:::: #########: ##:::: ##:. ######::'##:::. ##::::::: ##:::: ######::: ##::::::: #########:
@@ -12,7 +10,12 @@ pub async fn get_index() -> Result<(StatusCode, impl IntoResponse), (StatusCode,
 ::: ##:::: ##:::: ##: ##:::: ##:'##::: ##: ##.... ##::::::: ##:::: ##::::::: ##::: ##: ##:::: ##:
 ::: ##:::: ##:::: ##:. #######::. ######:: ##:::: ##::::::: ##:::: ########:. ######:: ##:::: ##:
 :::..:::::..:::::..:::.......::::......:::..:::::..::::::::..:::::........:::......:::..:::::..::
+    
+Welcome to our API. Please contact the developer for more information."#;
 
-Welcome to our API. Please contact the developer for more information."#,
-    ))
+    let response_body = format!("API Version: {}", env!("CARGO_PKG_VERSION"));
+
+    let response = format!("{}\n\n{}", response_header, response_body);
+
+    Ok((StatusCode::OK, response))
 }
